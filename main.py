@@ -2,24 +2,21 @@
 1 def для статических данных
 2 def для введеных с клавы
 3 добавить бд для выбора
-
 '''
-'''
-from mailmerge import MailMerge
 
-template = r'/home/boomtop/PycharmProjects/pypdf/ma.docx'
-
-document = MailMerge(template)
-print(document.get_merge_fields())
-
-document.merge(
-    text1='Тестовое поле!'
-)
-
-document.write('test1.docx')'''
 from docxtpl import DocxTemplate
+import datetime
+
+
+contragents = ('Фирма 1', 'Фирма 2', 'Фирма 3')
+print('Имя фирмы')
+for contragent in contragents:
+    print(contragent)
 
 doc = DocxTemplate("ma.docx")
-context = {'text2': "Тестовый тест" }
+context = {'text2': 'Тестовый тест', 'text3': 'Теeee'}
 doc.render(context)
-doc.save("generated_doc.docx")
+# doc.save(str(datetime.date.today())+".docx")
+print(datetime.date.today())
+
+# number = input('Номер счета: ')
